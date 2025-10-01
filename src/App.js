@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import TaskManager from "./components/TaskManager"; 
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
 
         {/* Dashboard Page */}
         <Route path="/dashboard" element={<Dashboard />} />
-
+        <Route path="/tasks" element={<TaskManager />} />
+        
         {/* Fallback jika user masuk route yang tidak ada */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
