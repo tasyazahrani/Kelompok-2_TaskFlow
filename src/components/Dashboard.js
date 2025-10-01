@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,34 +88,34 @@ function Dashboard() {
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="#" className="nav-link active">
+            <Link to="/dashboard" className="nav-link active">
               <span className="nav-icon">🏠</span> Dashboard
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/tasks" className="nav-link">
               <span className="nav-icon">📝</span> Tugas
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/notifikasi" className="nav-link">
               <span className="nav-icon">⭐</span> Pengingat
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/laporan" className="nav-link">
               <span className="nav-icon">📊</span> Laporan
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/pengaturan" className="nav-link">
               <span className="nav-icon">⚙️</span> Pengaturan
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/landingpage" className="nav-link">
               <span className="nav-icon">🚪</span> Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
