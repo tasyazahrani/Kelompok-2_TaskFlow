@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import TaskManager from "./components/TaskManager"; 
+import Notifikasi from "./components/Notifikasi"; 
 
 function App() {
   return (
@@ -16,10 +17,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Dashboard Page */}
+        {/* Dashboard Pages */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<TaskManager />} />
-        
+        <Route path="/notifikasi" element={<Notifikasi />} />
+
         {/* Fallback jika user masuk route yang tidak ada */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
