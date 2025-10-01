@@ -29,9 +29,11 @@ body {
     overflow-y: auto;
     z-index: 100;
     top: 0;
-    left: 0;
+    left: 0;   
     bottom: 0;
+    
 }
+
 
 .logo-section {
     display: flex;
@@ -155,7 +157,7 @@ body {
 .section-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: #ED4A81;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -489,32 +491,32 @@ body {
     color: #666;
 }
 
-/* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
-    max-height: 80vh;
-    overflow-y: auto;
-}
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  overflow-y: auto;      /* kalau konten banyak bisa scroll */
+  max-height: 90vh;      /* nggak terlalu tinggi */
+  border-radius: 12px;   /* sedikit lebih rounded */
+  box-sizing: border-box; 
+};
+
 
 .modal-header {
     display: flex;
@@ -593,8 +595,11 @@ body {
 }
 
 .task-expanded {
-    background: white !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 700px;       /* batas maksimal lebar */
+    width: 100%;            /* responsive */
+    margin: 0 auto;         /* biar center */
+    padding: 1.5rem 2rem;   /* padding dikurangi supaya nggak terlalu besar */
+    box-sizing: border-box;
 }
 
 .delete-btn {
