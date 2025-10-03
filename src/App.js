@@ -3,15 +3,18 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
-import TaskManager from "./components/TaskManager"; 
-import Notifikasi from "./components/Notifikasi"; 
+import TaskManager from './components/TaskManager';
+import Notifikasi from './components/Notifikasi';
+import Laporan from './components/Laporan';
+import Pengaturan from './components/Pengaturan';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Default: arahkan ke login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        {/* Default: arahkan ke LandingPage */}
+        <Route path="/" element={<LandingPage />} />  
 
         {/* Auth Pages */}
         <Route path="/login" element={<Login />} />
@@ -21,9 +24,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tasks" element={<TaskManager />} />
         <Route path="/notifikasi" element={<Notifikasi />} />
+        <Route path="/laporan" element={<Laporan />} />
+        <Route path="/pengaturan" element={<Pengaturan />} />
 
         {/* Fallback jika user masuk route yang tidak ada */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
