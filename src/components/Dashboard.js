@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,34 +88,34 @@ function Dashboard() {
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="#" className="nav-link active">
+            <Link to="/dashboard" className="nav-link active">
               <span className="nav-icon">🏠</span> Dashboard
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/tasks" className="nav-link">
               <span className="nav-icon">📝</span> Tugas
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/notifikasi" className="nav-link">
               <span className="nav-icon">⭐</span> Pengingat
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/laporan" className="nav-link">
               <span className="nav-icon">📊</span> Laporan
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/pengaturan" className="nav-link">
               <span className="nav-icon">⚙️</span> Pengaturan
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <Link to="/landingpage" className="nav-link">
               <span className="nav-icon">🚪</span> Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -143,22 +144,22 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Quick Actions */}
+       {/* Quick Actions */}
         <div className="quick-actions">
-          <h2 className="section-title">
+          <h2 className="section-title unique-title">
             <span className="section-title-icon">⚡</span> Aksi Cepat
           </h2>
           <div className="action-buttons">
-            <button className="action-btn" onClick={openModal}>
+            <button className="action-btn unique-btn" onClick={openModal}>
               ➕ Tambah Tugas Baru
             </button>
-            <button className="action-btn" onClick={() => setFilter("today")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("today")}>
               📅 Tugas Hari Ini
             </button>
-            <button className="action-btn" onClick={() => setFilter("high")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("high")}>
               🔥 Prioritas Tinggi
             </button>
-            <button className="action-btn" onClick={() => setFilter("all")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("all")}>
               📊 Semua Tugas
             </button>
           </div>

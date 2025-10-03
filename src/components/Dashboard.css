@@ -150,32 +150,82 @@ body {
 
 /* Quick Actions */
 .quick-actions {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem; 
+    align-items: flex-start;
+    width: 100%;
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: #ED4A81;
-    margin-bottom: 1rem;
+    color: white;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .section-title-icon {
     margin-right: 0.5rem;
 }
 
+/* Area Quick Actions beda background */
+.quick-actions {
+  background: linear-gradient(135deg, #f857a6, #ff5858);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+/* Judul unik dengan gradien teks */
+.unique-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #fff, #ffe6f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Tombol unik */
+.unique-btn {
+  background: white;
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  color: #ED4A81;
+  box-shadow: 0 5px 15px rgba(237, 74, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.unique-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(237, 74, 129, 0.4);
+  background: #ED4A81;
+  color: white;
+}
+
 .action-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .action-btn {
     background: rgba(255, 255, 255, 0.95);
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 1rem 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -514,7 +564,7 @@ body {
   max-height: 90vh;      /* nggak terlalu tinggi */
   border-radius: 12px;   /* sedikit lebih rounded */
   box-sizing: border-box; 
-};
+}
 
 
 .modal-header {
