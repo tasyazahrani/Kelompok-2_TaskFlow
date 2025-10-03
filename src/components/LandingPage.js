@@ -1,182 +1,354 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./LandingPage.css";
+import React, { useState, useEffect } from 'react';
+import { Search, Instagram, Twitter, Facebook, Youtube, Check, BarChart3, Smartphone, Shield, CheckCircle, Calendar, Code, Server } from 'lucide-react';
+import './LandingPage.css';
+import TasyaAvatar from "../images/tasya.png";
+import DeaAvatar from "../images/dea.png";
 
-function LandingPage() {
-  return (
-    <div>
-      {/* Header */}
-      <header>
-        <nav className="container">
-          <div className="logo">TaskFlow</div>
-          <ul className="nav-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#features">Fitur</a></li>
-            <li><a href="#tech">Teknologi</a></li>
-            <li><a href="#developer">Developer</a></li>
-            <li><a href="#demo">Demo</a></li>
-          </ul>
-        </nav>
-      </header>
+const LandingPage = () => {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
-      {/* Hero Section */}
-      <section id="home" className="hero">
-        <div className="container">
-          <div className="hero-content">
-            <h1>TaskFlow</h1>
-            <p>Aplikasi web todolist modern yang dibangun dengan Laravel Framework</p>
-            <div>
-              <span className="tech-badge">🔥 Laravel 10</span>
-              <span className="tech-badge">🎨 Bootstrap 5</span>
-              <span className="tech-badge">🗄️ MySQL</span>
-            </div>
-            <a href="#features" className="cta-button">Jelajahi Fitur</a>
-          </div>
-        </div>
-      </section>
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-      {/* Features Section */}
-      <section id="features" className="features">
-        <div className="container">
-          <h2 className="section-title">Fitur Unggulan</h2>
-          <div className="features-grid">
-            <div className="feature-card fade-in">
-              <div className="feature-icon">📋</div>
-              <h3>CRUD Task Management</h3>
-              <p>Sistem manajemen tugas lengkap dengan fitur Create, Read, Update, Delete menggunakan Laravel Eloquent ORM.</p>
-            </div>
-            <div className="feature-card fade-in">
-              <div className="feature-icon">🔐</div>
-              <h3>Authentication & Authorization</h3>
-              <p>Sistem keamanan terintegrasi dengan fitur login, register, dan middleware protection.</p>
-            </div>
-            <div className="feature-card fade-in">
-              <div className="feature-icon">📊</div>
-              <h3>Real-time Dashboard</h3>
-              <p>Dashboard interaktif dengan grafik & statistik produktivitas menggunakan Chart.js.</p>
-            </div>
-            <div className="feature-card fade-in">
-              <div className="feature-icon">📱</div>
-              <h3>Responsive Design</h3>
-              <p>Interface responsif dan mobile-friendly dengan Bootstrap 5.</p>
-            </div>
-            <div className="feature-card fade-in">
-              <div className="feature-icon">🔄</div>
-              <h3>Database Migration</h3>
-              <p>Struktur database terorganisir dengan Laravel Migration & Seeder.</p>
-            </div>
-            <div className="feature-card fade-in">
-              <div className="feature-icon">⚡</div>
-              <h3>Optimized Performance</h3>
-              <p>Implementasi caching, lazy loading, dan query optimization.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-      {/* Tech Stack Section */}
-      <section id="tech" className="tech-stack">
-        <div className="container">
-          <h2 className="section-title">Teknologi yang Digunakan</h2>
-          <div className="tech-grid">
-            <div className="tech-item">
-              <h4>🔥 Laravel 10</h4>
-              <p>Framework PHP modern dengan arsitektur MVC dan Eloquent ORM.</p>
-            </div>
-            <div className="tech-item">
-              <h4>🗄️ MySQL Database</h4>
-              <p>Database relasional dengan indexing dan optimasi query.</p>
-            </div>
-            <div className="tech-item">
-              <h4>🎨 Bootstrap 5</h4>
-              <p>Framework CSS responsif dengan UI modern.</p>
-            </div>
-            <div className="tech-item">
-              <h4>📊 Chart.js</h4>
-              <p>Visualisasi data interaktif dengan grafik.</p>
-            </div>
-            <div className="tech-item">
-              <h4>🔧 Blade Templating</h4>
-              <p>Template engine Laravel untuk reusable components.</p>
-            </div>
-            <div className="tech-item">
-              <h4>🚀 Composer & NPM</h4>
-              <p>Manajemen dependency PHP & JavaScript.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-      {/* Developer Section */}
-      <section id="developer" className="developer">
-        <div className="container">
-          <h2 className="section-title">Tentang Developer</h2>
+  // Feature data
+  const features = [
+    {
+      icon: React.createElement(CheckCircle, { size: 28 }),
+      title: 'Manajemen Tugas',
+      description: 'Buat, edit, dan organisir tugas dengan sistem kategori dan prioritas yang lengkap'
+    },
+    {
+      icon: React.createElement(BarChart3, { size: 28 }),
+      title: 'Prioritas Cerdas',
+      description: 'Tentukan tingkat prioritas tugas dengan sistem warna dan notifikasi yang intuitif'
+    },
+    {
+      icon: React.createElement(Calendar, { size: 28 }),
+      title: 'Jadwal Fleksibel',
+      description: 'Atur deadline dan pengingat waktu dengan kalender yang terintegrasi'
+    },
+    {
+      icon: React.createElement(BarChart3, { size: 28 }),
+      title: 'Analisis Produktivitas',
+      description: 'Pantau perkembangan dan statistik penyelesaian tugas dengan grafik interaktif'
+    },
+    {
+      icon: React.createElement(CheckCircle, { size: 28 }),
+      title: 'Notifikasi Real-time',
+      description: 'Dapatkan pengingat tepat waktu untuk tugas yang mendekati deadline'
+    }
+  ];
 
-          {/* Developer: Tasya */}
-          <div className="developer-content">
-            <div className="developer-image">
-              <div className="profile-photo">
-                <img src="/images/image.png" alt="Foto Tasya Zahrani" />
-              </div>
-            </div>
-            <div className="developer-info">
-              <h2>Tasya Zahrani</h2>
-              <h3>Full-Stack Laravel Developer & Web Designer</h3>
-              <p>Seorang web developer yang berspesialisasi dalam pengembangan aplikasi web menggunakan Laravel framework.</p>
-              <p>Berpengalaman dalam membangun aplikasi full-stack dengan arsitektur MVC yang scalable dan maintainable.</p>
-              <p><strong>Keahlian:</strong> Laravel • PHP • MySQL • JavaScript • Bootstrap • Git • RESTful API</p>
-              <div className="social-links">
-                <a href="#" className="social-link">📧</a>
-                <a href="#" className="social-link">💼</a>
-                <a href="#" className="social-link">🐙</a>
-              </div>
-            </div>
-          </div>
+  // Team data
+  const teamMembers = [
+    {
+      name: 'Tasya Zahrani',
+      role: 'Frontend Developer & UI Designer',
+      skills: ['Frontend', '2+ tahun'],
+      bio: 'Mengembangkan antarmuka pengguna yang intuitif dan responsif untuk pengalaman terbaik',
+      avatar: TasyaAvatar
+    },
+    {
+      name: 'Michael Chen',
+      role: 'Backend Developer & System Architect',
+      skills: ['Backend', '2+ tahun'],
+      bio: 'Membangun sistem backend yang scalable dan reliable untuk performa optimal',
+      avatar: DeaAvatar
+    }
+  ];
 
-          {/* Developer: Dea */}
-          <div className="developer-content">
-            <div className="developer-image">
-              <div className="profile-photo">
-                <img src="/images/dea.png" alt="Foto Dea Zasqia Pasaribu Malau" />
-              </div>
-            </div>
-            <div className="developer-info">
-              <h2>Dea Zasqia Pasaribu Malau</h2>
-              <h3>UI/UX Designer & Frontend Developer</h3>
-              <p>Mahasiswa Informatika yang memiliki ketertarikan di bidang rekayasa perangkat lunak, khususnya UI/UX dan desain interaktif.</p>
-              <p>Berpengalaman dalam membuat desain antarmuka modern serta mengimplementasikannya dengan HTML, CSS, dan React.</p>
-              <p><strong>Keahlian:</strong> UI/UX • Figma • React.js • HTML • CSS • JavaScript • Git</p>
-              <div className="social-links">
-                <a href="#" className="social-link">📧</a>
-                <a href="#" className="social-link">💼</a>
-                <a href="#" className="social-link">🐙</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  // Advantages data
+  const advantages = [
+    {
+      icon: React.createElement(BarChart3, { size: 32 }),
+      title: 'Produktivitas Meningkat',
+      description: 'Platform kami membantu meningkatkan produktivitas hingga 75% dengan sistem yang terstruktur dan mudah diikuti',
+      points: ['Drag & drop interface', 'Sistem prioritas otomatis', 'Progress tracking real-time']
+    },
+    {
+      icon: React.createElement(Smartphone, { size: 32 }),
+      title: 'Akses Multi-Device',
+      description: 'Akses dan kelola dari mana saja dengan sinkronisasi cloud yang seamless',
+      points: ['Web & mobile app', 'Sinkronisasi real-time', 'Offline capability']
+    },
+    {
+      icon: React.createElement(Shield, { size: 32 }),
+      title: 'Keamanan Data',
+      description: 'Data dan informasi pribadi Anda terlindungi dengan sistem enkripsi end-to-end dan backup otomatis',
+      points: ['Enkripsi AES-256', 'Backup harian otomatis', 'Two-factor authentication']
+    }
+  ];
 
-      {/* CTA Section */}
-      <section id="demo" className="cta-section">
-        <div className="container">
-          <h2>Siap Mencoba TaskFlow?</h2>
-          <p>Akses demo aplikasi web TaskFlow dan rasakan pengalaman produktivitas!</p>
-          <div className="download-buttons">
-            <Link to="/register" className="download-btn">🌐 Live Demo</Link>
-            <a href="#" className="download-btn">📂 Source Code</a>
-            <a href="#" className="download-btn">📖 Documentation</a>
-          </div>
-        </div>
-      </section>
+  // Stats data
+  const stats = [
+    { number: '75%', label: 'Peningkatan produktivitas' },
+    { number: '89%', label: 'Tugas diselesaikan tepat waktu' },
+    { number: '15K+', label: 'Pengguna aktif' },
+    { number: '96%', label: 'Tingkat kepuasan pengguna' }
+  ];
 
-      {/* Footer */}
-      <footer>
-        <div className="container">
-          <p>&copy; 2025 TaskFlow. Dibuat oleh Dea Zasqia Pasaribu Malau & Tasya Zahrani ❤️</p>
-        </div>
-      </footer>
-    </div>
+  return React.createElement('div', { className: 'landing-container' },
+    // Header
+    React.createElement('header', { className: 'landing-header' },
+      React.createElement('div', { className: 'header-content' },
+        React.createElement('div', { className: 'logo-sidebar' }, 'LandingPage'),
+        windowWidth >= 768 && React.createElement('nav', { className: 'desktop-nav' },
+          React.createElement('ul', { className: 'nav-list' },
+            ['beranda', 'fitur', 'tim', 'tentang'].map((item, index) =>
+              React.createElement('li', { key: index },
+                React.createElement('a', {
+                  className: 'nav-link',
+                  onClick: () => scrollToSection(item)
+                }, item.charAt(0).toUpperCase() + item.slice(1))
+              )
+            )
+          )
+        ),
+        windowWidth >= 768 && React.createElement('div', { className: 'auth-buttons' },
+          React.createElement('a', {
+            href: '/login',
+            className: 'btn-login'
+          }, 'Masuk'),
+          React.createElement('a', {
+            href: '/register',
+            className: 'btn-register'
+          }, 'Daftar')
+        )
+      )
+    ),
+
+    // Hero Section
+    React.createElement('section', { className: 'hero-section', id: 'beranda' },
+      React.createElement('div', { className: 'hero-content' },
+        React.createElement('div', { className: 'hero-text' },
+          React.createElement('h1', { className: 'hero-title' }, 'Tingkatkan Produktivitas Anda dengan Solusi Terbaik'),
+          React.createElement('p', { className: 'hero-description' },
+            'Platform kami membantu Anda mengatur, memprioritaskan, dan menyelesaikan pekerjaan dengan sistem manajemen yang intuitif dan powerful.'
+          ),
+          React.createElement('button', { className: 'cta-button' }, 'Mulai Sekarang'),
+          React.createElement('div', { className: 'hero-stats' },
+            React.createElement('span', null, '✨ 15.000+ pengguna bergabung')
+          )
+        ),
+        React.createElement('div', { className: 'hero-visual' },
+          React.createElement('div', { className: 'visual-container' },
+            React.createElement('div', { className: 'visual-content' },
+              React.createElement('div', { className: 'visual-icon' }, '🚀'),
+              React.createElement('h3', null, 'LandingPage'),
+              React.createElement('p', null, 'Produktivitas Maksimal')
+            )
+          )
+        )
+      )
+    ),
+
+    // Features Section
+    React.createElement('section', { className: 'features-section', id: 'fitur' },
+      React.createElement('div', { className: 'section-container' },
+        React.createElement('h2', { className: 'section-title' }, 'Cari Fitur Kami'),
+        React.createElement('div', { className: 'search-container' },
+          React.createElement(Search, { size: 18, color: "#666", className: 'search-icon' }),
+          React.createElement('input', {
+            type: 'text',
+            placeholder: 'Cari fitur yang Anda butuhkan...',
+            className: 'search-input'
+          }),
+          React.createElement('button', { className: 'search-button' }, 'Cari')
+        ),
+
+        React.createElement('div', { className: 'features-content' },
+          React.createElement('h3', { className: 'features-subtitle' }, 'Fitur Unggulan Kami'),
+          React.createElement('div', { className: 'features-grid' },
+            features.map((feature, index) =>
+              React.createElement('div', {
+                key: index,
+                className: `feature-card feature-card-${index + 1}`
+              },
+                React.createElement('div', { className: 'feature-icon-container' }, feature.icon),
+                React.createElement('h4', null, feature.title),
+                React.createElement('p', null, feature.description)
+              )
+            )
+          )
+        )
+      )
+    ),
+
+    // Team Section
+    React.createElement('section', { className: 'team-section', id: 'tim' },
+      React.createElement('div', { className: 'section-container' },
+        React.createElement('h2', { className: 'section-title' }, 'Tim Pengembang Kami'),
+        React.createElement('p', { className: 'section-description' },
+          'Kenali tim yang mengembangkan platform menjadi solusi yang powerful'
+        ),
+
+        React.createElement('div', { className: 'team-grid' },
+          teamMembers.map((member, index) =>
+            React.createElement('div', {
+              key: index,
+              className: 'team-card'
+            },
+              React.createElement('div', { className: 'team-header' },
+                React.createElement('div', { className: 'team-avatar' },
+                  member.avatar ?
+                    React.createElement('img', { src: member.avatar, alt: member.name }) :
+                    React.createElement('div', { className: 'avatar-placeholder' }, '👨‍💻')
+                )
+              ),
+              React.createElement('div', { className: 'team-info' },
+                React.createElement('h4', null, member.name),
+                React.createElement('p', { className: 'team-role' }, member.role),
+                React.createElement('div', { className: 'team-meta' },
+                  React.createElement('span', { className: 'meta-item' },
+                    index === 0 ? React.createElement(Code, { size: 16 }) : React.createElement(Server, { size: 16 }),
+                    member.skills[0]
+                  ),
+                  React.createElement('span', { className: 'meta-item' },
+                    React.createElement(Calendar, { size: 16 }),
+                    member.skills[1]
+                  )
+                ),
+                React.createElement('p', { className: 'team-bio' }, member.bio)
+              )
+            )
+          )
+        )
+      )
+    ),
+
+    // Advantages Section
+    React.createElement('section', { className: 'advantages-section', id: 'tentang' },
+      React.createElement('div', { className: 'section-container' },
+        React.createElement('h2', { className: 'section-title' }, 'Keunggulan Platform Kami'),
+        React.createElement('p', { className: 'section-description' },
+          'Mengapa platform kami menjadi pilihan utama untuk kebutuhan sehari-hari'
+        ),
+
+        React.createElement('div', { className: 'advantages-list' },
+          advantages.map((advantage, index) =>
+            React.createElement('div', {
+              key: index,
+              className: 'advantage-item'
+            },
+              React.createElement('div', { className: 'advantage-icon' }, advantage.icon),
+              React.createElement('div', { className: 'advantage-content' },
+                React.createElement('h4', null, advantage.title),
+                React.createElement('p', null, advantage.description),
+                React.createElement('ul', { className: 'advantage-points' },
+                  advantage.points.map((point, i) =>
+                    React.createElement('li', { key: i },
+                      React.createElement(Check, { size: 16, className: 'check-icon' }),
+                      point
+                    )
+                  )
+                )
+              )
+            )
+          )
+        ),
+
+        React.createElement('div', { className: 'stats-grid' },
+          stats.map((stat, index) =>
+            React.createElement('div', {
+              key: index,
+              className: 'stat-card'
+            },
+              React.createElement('div', { className: 'stat-number' }, stat.number),
+              React.createElement('p', null, stat.label)
+            )
+          )
+        ),
+
+        React.createElement('div', { className: 'cta-container' },
+          React.createElement('a', {
+            href: '/register',
+            className: 'cta-button-large'
+          }, 'Mulai Sekarang')
+        )
+      )
+    ),
+
+    // Footer
+    React.createElement('footer', { className: 'landing-footer' },
+      React.createElement('div', { className: 'footer-container' },
+        React.createElement('div', { className: 'footer-content' },
+          React.createElement('div', { className: 'footer-section' },
+            React.createElement('h3', null, 'LandingPage'),
+            React.createElement('p', null,
+              'Platform solusi terbaik untuk produktivitas maksimal dalam pekerjaan sehari-hari.'
+            ),
+            React.createElement('div', { className: 'social-links' },
+              [Instagram, Twitter, Facebook, Youtube].map((Icon, index) =>
+                React.createElement('div', {
+                  key: index,
+                  className: 'social-icon'
+                }, React.createElement(Icon, { size: 20 }))
+              )
+            )
+          ),
+
+          React.createElement('div', { className: 'footer-section' },
+            React.createElement('h4', null, 'Halaman'),
+            React.createElement('ul', null,
+              ['beranda', 'fitur', 'tim', 'tentang'].map((item, index) =>
+                React.createElement('li', { key: index },
+                  React.createElement('a', {
+                    className: 'footer-link',
+                    onClick: () => scrollToSection(item)
+                  }, item.charAt(0).toUpperCase() + item.slice(1))
+                )
+              )
+            )
+          ),
+
+          React.createElement('div', { className: 'footer-section' },
+            React.createElement('h4', null, 'Fitur'),
+            React.createElement('ul', null,
+              ['Manajemen Tugas', 'Prioritas Cerdas', 'Analisis Produktivitas', 'Notifikasi'].map((item, index) =>
+                React.createElement('li', { key: index },
+                  React.createElement('a', { className: 'footer-link' }, item)
+                )
+              )
+            )
+          ),
+
+          React.createElement('div', { className: 'footer-section' },
+            React.createElement('h4', null, 'Berlangganan'),
+            React.createElement('p', null, 'Dapatkan tips produktivitas terbaru'),
+            React.createElement('div', { className: 'subscribe-form' },
+              React.createElement('input', {
+                type: 'email',
+                placeholder: 'Email anda...',
+                className: 'subscribe-input'
+              }),
+              React.createElement('button', { className: 'subscribe-button' }, 'Kirim')
+            )
+          )
+        ),
+
+        React.createElement('div', { className: 'footer-bottom' },
+          React.createElement('p', null, '© 2025 LandingPage. All rights reserved.'),
+          React.createElement('div', { className: 'footer-links' },
+            React.createElement('a', { className: 'footer-link' }, 'Kebijakan Privasi'),
+            React.createElement('a', { className: 'footer-link' }, 'Syarat & Ketentuan')
+          )
+        )
+      )
+    )
   );
-}
+};
 
 export default LandingPage;
