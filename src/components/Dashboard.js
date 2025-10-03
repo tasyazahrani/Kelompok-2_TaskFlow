@@ -144,22 +144,22 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Quick Actions */}
+       {/* Quick Actions */}
         <div className="quick-actions">
-          <h2 className="section-title">
+          <h2 className="section-title unique-title">
             <span className="section-title-icon">⚡</span> Aksi Cepat
           </h2>
           <div className="action-buttons">
-            <button className="action-btn" onClick={openModal}>
+            <button className="action-btn unique-btn" onClick={openModal}>
               ➕ Tambah Tugas Baru
             </button>
-            <button className="action-btn" onClick={() => setFilter("today")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("today")}>
               📅 Tugas Hari Ini
             </button>
-            <button className="action-btn" onClick={() => setFilter("high")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("high")}>
               🔥 Prioritas Tinggi
             </button>
-            <button className="action-btn" onClick={() => setFilter("all")}>
+            <button className="action-btn unique-btn" onClick={() => setFilter("all")}>
               📊 Semua Tugas
             </button>
           </div>
