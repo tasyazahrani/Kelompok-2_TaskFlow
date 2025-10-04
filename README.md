@@ -16,11 +16,12 @@ Image Docker sudah tersedia di Docker Hub:
 👉 tasyazahrani/taskflow
 
 ## Tag image untuk UTS:
+LINK DOCKER: https://hub.docker.com/repository/docker/tasyazahrani/taskflow/general
 tasyazahrani/taskflow:submit-UTS
 
 ⚡ Cara Menjalankan dengan Docker
 1. Pull Image dari Docker Hub
-''' docker pull tasyazahrani/taskflow:submit-UTS '''
+docker pull tasyazahrani/taskflow:submit-UTS
 
 2. Jalankan Container
 - Jalankan di port 3000:
